@@ -7,6 +7,7 @@ import { calculaIdade } from "../Utils/data";
 import { FiltroContext } from "../Contextos/FiltroContext";
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { BACKEND_API } from "../config";
 
 
 
@@ -17,7 +18,7 @@ export const useListaContext = () => {
 
 
   function buscaDados() {
-    axios.get('https://my-json-server.typicode.com/Adriano-henriqq/banco-lista/banco')
+    axios.get(BACKEND_API)
       .then(function (response) {
         const dadosComIdade = adicionaCampoIdade(response)
         console.log(dadosComIdade)
@@ -25,6 +26,7 @@ export const useListaContext = () => {
       })
       .catch(function (error) {
         console.log(error);
+        console.log('dados api' + BACKEND_API)
       })
 
   }

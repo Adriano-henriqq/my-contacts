@@ -25,7 +25,7 @@ export default function Lista(){
 
 
   useEffect(()=>{
-    if(listaBrowser.length <= 0){
+    if(listaBrowser.length <= 0 || localStorage.getItem('contatos') === null){
       buscaDados()
     }
   },[])

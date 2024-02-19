@@ -18,6 +18,7 @@ export const useListaContext = () => {
 
 
   function buscaDados() {
+    
     axios.get(BACKEND_API)
       .then(function (response) {
         const dadosComIdade = adicionaCampoIdade(response)

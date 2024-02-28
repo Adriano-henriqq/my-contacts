@@ -7,7 +7,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import MenuItem from '@mui/material/MenuItem';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 
 export default function BarraNaveg () {
@@ -26,7 +26,7 @@ export default function BarraNaveg () {
     <AppBar position="sticky" sx={{backgroundColor: 'transparent'}} elevation={0} >
       <Container maxWidth="xl" >
         <Toolbar disableGutters sx={{display: 'flex', justifyContent: "space-around", color: 'black'} }>
-          <img src='/images/My contacts.png' alt='logo myContacts' style={{width:'150px'}}/>
+          <NavLink to={'/'}><img src='/images/My contacts.png' alt='logo myContacts' style={{width:'150px'}}/></NavLink>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton

@@ -8,9 +8,11 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Form from '../Form';
 import { useFormContext } from '../../hooks/useFormContext';
 import { Fab } from '@mui/material';
+import { useListaContext } from '../../hooks/useListaContext';
 
 export default function FormDialog({children}) {
  const {open, handleClickOpen, handleClose} = useFormContext();
+ const {editar} = useListaContext()
 
   return (
     <React.Fragment >
@@ -24,15 +26,14 @@ export default function FormDialog({children}) {
         sx={{height:{xs: 'auto', md:'100%'}}}
         
       >
-        <DialogTitle>Adicionar Contato</DialogTitle>
-        <DialogContent >
+        <DialogTitle>{!editar ?'Adicionar Contato': 'Editar Contato'}</DialogTitle>
+        <DialogContent sx={{width: 450}} >
           <DialogContentText>
            Preencha os dados do contato
           </DialogContentText>
-          <Form fecharForm={handleClose}>
+          <Form handleClose={handleClose} fecharForm={handleClose}>
           <DialogActions>
-          <Button color='error' onClick={handleClose}>Cancel</Button>
-          <Button color='success' type="submit">Adicionar</Button>
+         
         </DialogActions>
           </Form>
         </DialogContent>

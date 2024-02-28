@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { FiltroContext } from "../Contextos/FiltroContext";
 import { useListaContext } from "./useListaContext";
 
@@ -20,6 +20,7 @@ export function useFiltrosContext() {
     const [CountFiltro, setCountFiltro] = useState(0)
 
     function ativaFiltro(tipoFiltro) {
+        console.log(CountFiltro)
         const itensOriginais = JSON.parse(localStorage.getItem('contatos'))
         setFiltrar(true)
         const estadoFiltro = pegaTipoFiltro(tipoFiltro)

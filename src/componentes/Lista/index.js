@@ -81,7 +81,7 @@ export default function Lista(){
                   <TableCell align="center">{contato.email}</TableCell>
                   <TableCell align="center">{formataData(contato.birthday)}</TableCell>
                   <TableCell align="center">{contato.age !== null ? contato.age: calculaIdade(contato.birthday)}</TableCell>
-                  <TableCell align="center">{contato.gender}</TableCell>
+                  <TableCell align="center">{contato.gender === 'M' ? 'Masculino': 'Feminino'}</TableCell>
                   <TableCell align="center">{contato.language}</TableCell>
                   <TableCell align="center">
                     <Edit sx={{cursor:'pointer'}} onClick={() => editaDados(contato.id)} fontSize='18px'/>

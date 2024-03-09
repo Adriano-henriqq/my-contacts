@@ -27,7 +27,7 @@ export default function FormDialog({children}) {
         
       >
         <DialogTitle>{!editar ?'Adicionar Contato': 'Editar Contato'}</DialogTitle>
-        <DialogContent sx={{width: 450}} >
+        <DialogContent sx={{width:{ xs:'100%', md:450}}} >
           <DialogContentText>
            Preencha os dados do contato
           </DialogContentText>

@@ -9,7 +9,7 @@ export  const theme = createTheme({
     },
     palette:{
       background:{
-        default: 'black'
+        default: 'black',
       }
     }
    
@@ -71,4 +71,14 @@ export  const theme = createTheme({
       
    }
   })    
-    
+  export const form= createTheme({
+    components:{
+      MuiTextField:{
+        styleOverrides:{
+          root:{
+            size:{xs:'small', md:'large'} 
+          }
+        }
+      }
+    }
+  })

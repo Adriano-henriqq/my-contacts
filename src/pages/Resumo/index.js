@@ -40,7 +40,7 @@ export default function Resumo() {
       return idioma
     })
     for (const idioma of idiomas) {
-      const idiomaFormatado = idioma.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+      const idiomaFormatado = idioma;
       if (contagem[idiomaFormatado]) {
         contagem[idiomaFormatado]++
       } else {

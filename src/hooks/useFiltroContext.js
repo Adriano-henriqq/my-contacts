@@ -135,7 +135,11 @@ export function useFiltrosContext() {
     }
     }
 
+    function retiraFiltroTodos(){
+        const listaRestaurar = listaBackup.length <= 0 ? listaBrowser : listaBackup;
 
+        setListaBrowser([...listaRestaurar])
+    }
 
 
     return {
@@ -152,7 +156,9 @@ export function useFiltrosContext() {
         filtragem,
         ativaFiltro,
         filtrarPorMes,
-        filtrar
+        filtrar,
+        setRetiraFiltro,
+        retiraFiltroTodos
 
     }
 }

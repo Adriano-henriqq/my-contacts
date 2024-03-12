@@ -1,5 +1,5 @@
 import { DeleteOutline, Edit } from '@mui/icons-material';
-import { Avatar,  Box,Table, TableBody, TableCell, TableContainer, TableHead, TableRow, ThemeProvider, Typography,  } from '@mui/material';
+import { Avatar,  Box,Button,Card,Grid,Table, TableBody, TableCell, TableContainer, TableHead, TableRow, ThemeProvider, Typography,  } from '@mui/material';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import React, { useEffect } from 'react';
@@ -11,6 +11,8 @@ import { useFiltrosContext } from '../../hooks/useFiltroContext';
 import { calculaIdade, formataData} from '../../Utils/data';
 import FiltrosData from '../Filtros/FiltroData';
 import { themeTable } from '../../temas/temas';
+import BotaoExportarExcel from '../BotaoExport';
+import CardsContatos from '../Cards';
 
   
 export default function Lista(){
@@ -20,6 +22,7 @@ export default function Lista(){
     filtrarAge,
     filtrarGender,
     filtrarIdioma,
+    retiraFiltroTodos    
 }  = useFiltrosContext()
 
 
@@ -31,16 +34,19 @@ export default function Lista(){
   },[])
     return (
       <>
-       <Box display={'flex'} sx={{ margin: '1.5rem', gap: '16px' }}> 
+       <Box display={'flex'} sx={{ margin: '1.5rem', gap: '16px',flexWrap:'wrap' }}> 
           <Typography flexGrow={1} variant='h2' sx={{fontSize:"32px", color:'#6B728E'}}> Contatos</Typography>
+          <BotaoExportarExcel data={listaBrowser}/>
           <FormDialog> 
             <PersonAddIcon />
           </FormDialog>
           <FiltroMenu>
             <FilterListIcon />
           </FiltroMenu>
+          <Button onClick={()=>retiraFiltroTodos()} variant='contained'  color='primary'>Limpar Filtro</Button>
         </Box>
-      <TableContainer sx={{ backgroundColor: ' transparent' , padding: "1rem",  overflowY: 'hidden'}} >
+      <TableContainer sx={{ backgroundColor: ' transparent' , padding: "1rem",  overflowY: 'hidden', display:{xs:'none', sm:'none', md:'block'}}} >
+        <Typography color='#6B728E' variant='body2'>{`Total (${listaBrowser.length}) `}</Typography>
         <Table sx={{  padding: '.5rem', borderCollapse:'inherit',}} aria-label="simple table">
           <TableHead  >
       <ThemeProvider theme={themeTable}>
@@ -100,6 +106,19 @@ export default function Lista(){
           </TableBody>
         </Table>
       </TableContainer>
+
+      <Box display={{xs:'flex',sm:'flex',md:'none' }} justifyContent={'center'} >
+
+          <Grid container spacing={2} justifyContent={'center'}  alignItems={'center'} >
+        { listaBrowser.map(contato => (
+            <Grid xs={10} sm={6}  flexWrap={'wrap'}  rowSpacing={1} columnSpacing={1}  item>
+              <CardsContatos data={contato}/>
+
+            </Grid>
+        ))
+        }          
+          </Grid>  
+      </Box>
       </>
       
       )

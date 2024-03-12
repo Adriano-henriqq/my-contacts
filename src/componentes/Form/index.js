@@ -16,7 +16,7 @@ export default function Form({ fecharForm, handleClose }) {
       email: '',
       birthday: '',
       gender: '',
-      language: ''
+      
 
     }
   })
@@ -65,7 +65,9 @@ export default function Form({ fecharForm, handleClose }) {
       <span style={{ color: 'red', fontSize: '12px', display: errors?.email ? 'block' : 'none' }}>
         {errors?.email?.type === 'required' ? 'Campo Obrigatório' : errors?.email?.message}</span>
 
-      <TextField error={errors?.birthday && true} size="small"  {...register('birthday', { required: true })} type='date' onFocus={() => setDataInput(true)} onBlur={() => setDataInput(false)} id="data" placeholder="" label={dataInput ? 'Data' : ''} variant="filled" />
+      <TextField error={errors?.birthday && true} size="small"  {...register('birthday', { required: true })} type='date' InputLabelProps={{
+            shrink: true,
+          }} onFocus={() => setDataInput(true)} onBlur={() => setDataInput(false)} id="data" input label={'Data de Nascimento'} variant="filled" />
       <span style={{ color: 'red', fontSize: '12px', display: errors?.birthday ? 'block' : 'none' }}>
         {errors?.birthday?.type === 'required' && 'Campo Obrigatório'}</span>
 

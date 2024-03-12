@@ -5,7 +5,7 @@ import { useListaContext } from "../../hooks/useListaContext";
 export default function CardsContatos({data}){
     const {excluiDados,editaDados} = useListaContext()
     return(
-        <Card  sx={{ maxWidth: 350 }} >
+        <Card  sx={{ maxWidth: 360 }} >
             <CardMedia
              sx={{height: 250}}
              image={data.avatar}

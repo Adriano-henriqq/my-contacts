@@ -13,6 +13,7 @@ import FiltrosData from '../Filtros/FiltroData';
 import { themeTable } from '../../temas/temas';
 import BotaoExportarExcel from '../BotaoExport';
 import CardsContatos from '../Cards';
+import DialogConfirmation from '../DialogConfirm';
 
   
 export default function Lista(){
@@ -93,7 +94,7 @@ export default function Lista(){
                     <Edit sx={{cursor:'pointer'}} onClick={() => editaDados(contato.id)} fontSize='18px'/>
                   </TableCell>
                   <TableCell sx={{borderRadius:'0 10px 10px 0'}} align="right">
-                    <DeleteOutline sx={{cursor: 'pointer'}} onClick={()=> excluiDados(contato.id) } />
+                    <DialogConfirmation id={contato.id}/>
                   </TableCell>
                 </TableRow>
                 {index < listaBrowser.length - 1 && (
